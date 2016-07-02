@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="53a8fc27a19841d7805ecbf1db717fc4" Name="Diagram1" >
+        <EntityTypeShape EntityType="VMDB.Character" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="VMDB.Culture" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="VMDB.House" Width="1.5" PointX="10.25" PointY="3.625" />
+        <AssociationConnector Association="VMDB.CharacterHouse" />
+        <EntityTypeShape EntityType="VMDB.Region" Width="1.5" PointX="7.875" PointY="5.375" />
+        <EntityTypeShape EntityType="VMDB.Title" Width="1.5" PointX="7.875" PointY="3.625" />
+        <AssociationConnector Association="VMDB.CharacterTitle" />
+        <AssociationConnector Association="VMDB.TitleHouse" />
+        <AssociationConnector Association="VMDB.CharacterCulture" />
+        <AssociationConnector Association="VMDB.HouseRegion" />
+        <AssociationConnector Association="VMDB.CharacterHouse1" />
+        <AssociationConnector Association="VMDB.HouseHouse" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
