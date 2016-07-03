@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Console", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.SyncUI", "ValarMorghulis.SyncUI\ValarMorghulis.SyncUI.csproj", "{B2B05261-9DCF-4BF0-BD3B-D66660805F24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Common", "ValarMorghulis.Common\ValarMorghulis.Common.csproj", "{C8527147-35FB-4D25-9F90-893AFF3F37B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,8 +49,17 @@ Global
 		{B2B05261-9DCF-4BF0-BD3B-D66660805F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B05261-9DCF-4BF0-BD3B-D66660805F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2B05261-9DCF-4BF0-BD3B-D66660805F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8527147-35FB-4D25-9F90-893AFF3F37B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8527147-35FB-4D25-9F90-893AFF3F37B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8527147-35FB-4D25-9F90-893AFF3F37B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8527147-35FB-4D25-9F90-893AFF3F37B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
+		{51812C6C-37E8-46AC-81ED-99C43C33060E} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
+		{B2B05261-9DCF-4BF0-BD3B-D66660805F24} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
 	EndGlobalSection
 EndGlobal

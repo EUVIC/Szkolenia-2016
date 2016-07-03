@@ -159,8 +159,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +174,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ValarMorghulis.Common\ValarMorghulis.Common.csproj">
+      <Project>{c8527147-35fb-4d25-9f90-893aff3f37b4}</Project>
+      <Name>ValarMorghulis.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ValarMorghulis.Infrastructure\ValarMorghulis.Infrastructure.csproj">
       <Project>{a4865890-6ec1-41a6-b238-887ead599cdd}</Project>
       <Name>ValarMorghulis.Infrastructure</Name>
