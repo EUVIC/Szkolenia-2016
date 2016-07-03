@@ -1,0 +1,22 @@
+{
+  "name": "valar-morghulis",
+  "description": "Podstawy projektów webowych.",
+  "main": "index.js",
+  "authors": [
+    "EUVIC"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/EUVIC/Szkolenia-2016",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "angular-datatables": "^0.5.4"
+  }
+}
