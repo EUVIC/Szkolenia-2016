@@ -1,9 +1,5 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
 using ValarMorghulis.Domain.Repositories;
@@ -24,6 +20,12 @@ namespace ValarMorghulis.Infrastructure.Services
 		{
 			Character entity = characterRepository.GetSingle(id);
 			return AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(entity);
+		}
+
+		public IEnumerable<CharacterListElementViewModel> GetCharacters()
+		{
+			IQueryable<Character> entities = characterRepository.GetAll();
+			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(entities);
 		}
 	}
 }

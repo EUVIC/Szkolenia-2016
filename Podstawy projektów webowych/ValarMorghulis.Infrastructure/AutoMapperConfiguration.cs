@@ -17,7 +17,11 @@ namespace ValarMorghulis.Infrastructure
 
 		public void Configure()
 		{
-			var characterConfig = new MapperConfiguration(cfg => cfg.CreateMap<Character, CharacterDetailsViewModel>());
+			var characterConfig = new MapperConfiguration(cfg =>
+			{
+				cfg.CreateMap<Character, CharacterDetailsViewModel>();
+				cfg.CreateMap<Character, CharacterListElementViewModel>();
+			});
 			characterMapper = characterConfig.CreateMapper();
 		}
 	}
