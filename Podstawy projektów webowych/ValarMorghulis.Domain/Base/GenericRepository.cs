@@ -10,12 +10,20 @@ namespace ValarMorghulis.Domain.Base
 	public abstract class GenericRepository<C, T> :
 		IGenericRepository<T> where T : class where C : DbContext, new()
 	{
-		private C _entities = new C();
+		private readonly C _entities;
 		public C Context
 		{
-
 			get { return _entities; }
-			set { _entities = value; }
+		}
+
+		public GenericRepository()
+		{
+			_entities = new C();
+		}
+
+		public GenericRepository(GenericRepository<C, T> existingRepository)
+		{
+			_entities = existingRepository.Context;
 		}
 
 		public virtual IQueryable<T> GetAll()

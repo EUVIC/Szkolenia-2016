@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.SyncUI", "Va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.AsyncUI", "ValarMorghulis.AsyncUI\ValarMorghulis.AsyncUI.csproj", "{51812C6C-37E8-46AC-81ED-99C43C33060E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Console", "ValarMorghulis.Console\ValarMorghulis.Console.csproj", "{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{51812C6C-37E8-46AC-81ED-99C43C33060E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51812C6C-37E8-46AC-81ED-99C43C33060E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51812C6C-37E8-46AC-81ED-99C43C33060E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

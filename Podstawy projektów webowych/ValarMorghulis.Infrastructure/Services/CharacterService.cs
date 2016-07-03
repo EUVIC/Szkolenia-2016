@@ -23,7 +23,7 @@ namespace ValarMorghulis.Infrastructure.Services
 		public CharacterDetailsViewModel GetCharacterDetails(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
-			return Mapper.Map<CharacterDetailsViewModel>(entity);
+			return AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(entity);
 		}
 	}
 }

@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1BCC761-2F21-4284-A1A9-373BAF7E7D2A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ValarMorghulis.Domain</RootNamespace>
-    <AssemblyName>ValarMorghulis.Domain</AssemblyName>
+    <RootNamespace>ValarMorghulis.Console</RootNamespace>
+    <AssemblyName>ValarMorghulis.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,8 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,71 +52,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\GenericRepository.cs" />
-    <Compile Include="Base\IGenericRepository.cs" />
-    <Compile Include="Character.cs">
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Culture.cs">
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="House.cs">
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Interfaces\ICharacterRepository.cs" />
+    <Compile Include="AutoMapperConfig.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs">
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repositories\CharacterRepository.cs" />
-    <Compile Include="Title.cs">
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VMDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VMDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VMDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VMDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VMDB.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="VMDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VMDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="VMDB.edmx.diagram">
-      <DependentUpon>VMDB.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\InitialData.sql" />
-    <Content Include="VMDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VMDB.Context.cs</LastGenOutput>
-      <DependentUpon>VMDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="VMDB.edmx.sql" />
-    <Content Include="VMDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VMDB.cs</LastGenOutput>
-      <DependentUpon>VMDB.edmx</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\ValarMorghulis.Infrastructure\ValarMorghulis.Infrastructure.csproj">
+      <Project>{a4865890-6ec1-41a6-b238-887ead599cdd}</Project>
+      <Name>ValarMorghulis.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
