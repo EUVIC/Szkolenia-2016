@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Data", "ValarMorghulis.Data\ValarMorghulis.Data.csproj", "{A1BCC761-2F21-4284-A1A9-373BAF7E7D2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Domain", "ValarMorghulis.Domain\ValarMorghulis.Domain.csproj", "{A1BCC761-2F21-4284-A1A9-373BAF7E7D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Repository", "ValarMorghulis.Repository\ValarMorghulis.Repository.csproj", "{A4865890-6EC1-41A6-B238-887EAD599CDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Infrastructure", "ValarMorghulis.Infrastructure\ValarMorghulis.Infrastructure.csproj", "{A4865890-6EC1-41A6-B238-887EAD599CDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.HybridUI", "ValarMorghulis.HybridUI\ValarMorghulis.HybridUI.csproj", "{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}"
 EndProject

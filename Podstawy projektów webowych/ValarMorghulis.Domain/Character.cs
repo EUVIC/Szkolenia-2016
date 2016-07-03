@@ -7,23 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ValarMorghulis.Data
+namespace ValarMorghulis.Domain
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Culture
+    public partial class Character
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Culture()
+        public Character()
         {
-            this.Characters = new HashSet<Character>();
+            this.Houses = new HashSet<House>();
+            this.Titles = new HashSet<Title>();
+            this.House = new HashSet<House>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Born { get; set; }
+        public string Died { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Character> Characters { get; set; }
+        public virtual ICollection<House> Houses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Title> Titles { get; set; }
+        public virtual Culture Culture { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<House> House { get; set; }
     }
 }

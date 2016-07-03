@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ValarMorghulis.Data
+namespace ValarMorghulis.Domain
 {
     using System;
     using System.Data.Entity;

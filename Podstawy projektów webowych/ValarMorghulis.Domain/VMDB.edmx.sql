@@ -3,7 +3,7 @@
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
 -- Date Created: 07/02/2016 20:31:58
--- Generated from EDMX file: D:\projects\euvic\szkolenia\repo\Szkolenia-2016\Podstawy projektów webowych\ValarMorghulis.Data\VMDB.edmx
+-- Generated from EDMX file: D:\projects\euvic\szkolenia\repo\Szkolenia-2016\Podstawy projektów webowych\ValarMorghulis.Domain\VMDB.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
