@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
@@ -10,6 +11,7 @@ namespace ValarMorghulis.Infrastructure.Services
 	public class CharacterService
 	{
 		private readonly ICharacterRepository characterRepository;
+		private readonly ICultureRepository cultureRepository;
 
 		public CharacterService()
 		{
@@ -26,6 +28,13 @@ namespace ValarMorghulis.Infrastructure.Services
 		{
 			IQueryable<Character> entities = characterRepository.GetAll();
 			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(entities);
+		}
+
+		public void CreateCharacter(CreateCharacterViewModel viewModel)
+		{
+			Character entity = AutoMapperConfiguration.characterMapper.Map<Character>(viewModel);
+			characterRepository.Add(entity);
+			characterRepository.Save();
 		}
 	}
 }

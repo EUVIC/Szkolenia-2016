@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\GenericRepository.cs" />
+    <Compile Include="Base\IRepository.cs" />
     <Compile Include="Base\IGenericRepository.cs" />
     <Compile Include="Character.cs">
       <DependentUpon>VMDB.tt</DependentUpon>
@@ -62,11 +63,13 @@
     <Compile Include="House.cs">
       <DependentUpon>VMDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICultureRepository.cs" />
     <Compile Include="Interfaces\ICharacterRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs">
       <DependentUpon>VMDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CultureRepository.cs" />
     <Compile Include="Repositories\CharacterRepository.cs" />
     <Compile Include="Title.cs">
       <DependentUpon>VMDB.tt</DependentUpon>

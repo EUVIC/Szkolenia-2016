@@ -21,9 +21,9 @@ namespace ValarMorghulis.Domain.Base
 			_entities = new C();
 		}
 
-		public GenericRepository(GenericRepository<C, T> existingRepository)
+		public GenericRepository(IRepository existingRepository)
 		{
-			_entities = existingRepository.Context;
+			_entities = (existingRepository as GenericRepository<C, T>).Context;
 		}
 
 		public virtual IQueryable<T> GetAll()

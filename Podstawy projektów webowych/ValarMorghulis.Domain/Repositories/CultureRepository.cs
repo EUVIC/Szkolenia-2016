@@ -8,20 +8,19 @@ using ValarMorghulis.Domain.Interfaces;
 
 namespace ValarMorghulis.Domain.Repositories
 {
-	public class CharacterRepository :
-	GenericRepository<VMDBContainer, Character>, ICharacterRepository
+	public class CultureRepository :
+	GenericRepository<VMDBContainer, Culture>, ICultureRepository
 	{
-		public CharacterRepository()
+		public CultureRepository()
 			: base()
 		{
 		}
-
-		public CharacterRepository(IRepository existingRepository)
+		public CultureRepository(IRepository existingRepository)
 			: base(existingRepository)
 		{
 		}
 
-		public Character GetSingle(int id)
+		public Culture GetSingle(int id)
 		{
 			var query = GetAll().FirstOrDefault(x => x.Id == id);
 			return query;

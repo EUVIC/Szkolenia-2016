@@ -11,6 +11,7 @@ namespace ValarMorghulis.SyncUI.Controllers
 	public class CharacterController : Controller
 	{
 		private readonly CharacterService characterService = new CharacterService();
+		private readonly CultureService cultureService = new CultureService();
 
 		// GET: Character
 		public ActionResult Index()
@@ -29,18 +30,25 @@ namespace ValarMorghulis.SyncUI.Controllers
 		// GET: Character/Create
 		public ActionResult Create()
 		{
-			return View();
+			var viewModel = new CreateCharacterViewModel();
+			viewModel.CultureOptions = cultureService.GetCultures();
+			return View(viewModel);
 		}
 
 		// POST: Character/Create
 		[HttpPost]
-		public ActionResult Create(FormCollection collection)
+		public ActionResult Create(CreateCharacterViewModel viewModel)
 		{
 			try
 			{
 				// TODO: Add insert logic here
-
-				return RedirectToAction("Index");
+				if (ModelState.IsValid)
+				{
+					characterService.CreateCharacter(viewModel);
+					return RedirectToAction("Index");
+				}
+				ModelState.AddModelError(string.Empty, "Form data is invalid.");
+				return View();
 			}
 			catch
 			{

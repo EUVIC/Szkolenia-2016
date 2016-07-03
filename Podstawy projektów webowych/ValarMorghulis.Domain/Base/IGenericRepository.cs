@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ValarMorghulis.Domain.Base
 {
-	public interface IGenericRepository<T> where T : class
+	public interface IGenericRepository<T>: IRepository where T : class
 	{
 		IQueryable<T> GetAll();
 		IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
