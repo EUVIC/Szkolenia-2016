@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Common", "Va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.AsyncUI", "ValarMorghulis.AsyncUI\ValarMorghulis.AsyncUI.csproj", "{A9C93CD1-E398-43FF-83C2-1845B2F667F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.WebAPI", "ValarMorghulis.WebAPI\ValarMorghulis.WebAPI.csproj", "{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{A9C93CD1-E398-43FF-83C2-1845B2F667F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9C93CD1-E398-43FF-83C2-1845B2F667F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C93CD1-E398-43FF-83C2-1845B2F667F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

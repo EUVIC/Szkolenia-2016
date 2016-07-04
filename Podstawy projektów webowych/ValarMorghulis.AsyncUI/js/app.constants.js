@@ -3,12 +3,11 @@
 		.constant('states', {
             HOME: 'home',
 			COMMON: 'common',
-            CHARACTERS: 'characters'
+            CHARACTERS: 'characters',
+            CHARACTER_DETAILS: 'character-details',
+            CHARACTER_CREATE: 'character-create'
 		})
 		.constant('apiConfig', {
-			baseApiUrl: 'http://localhost:42001/',
-			getApiUrlBase: function () {
-				return this.baseApiUrl + 'api/';
-			}
+			baseApiUrl: 'http://localhost:52476/api'
 		})
 })();

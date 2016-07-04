@@ -22,6 +22,25 @@
                 controller: 'CharactersController',
                 controllerAs: 'vm',
                 parent: 'common'
+            })
+            .state(states.CHARACTER_DETAILS, {
+                url: '/characters/details/{characterId}',
+                templateUrl: 'views/character-details.html',
+                controller: 'CharacterDetailsController',
+                controllerAs: 'vm',
+                parent: 'common',
+                resolve: {
+                    character: function ($stateParams, charactersService) {
+                        return charactersService.getCharacterDetails($stateParams.characterId);
+                    }
+                }
+            })
+            .state(states.CHARACTER_CREATE, {
+                url: '/characters/create',
+                templateUrl: 'views/character-create.html',
+                controller: 'CharacterCreateController',
+                controllerAs: 'vm',
+                parent: 'common'
             });
         $urlRouterProvider.otherwise('/');
     }

@@ -24,7 +24,7 @@
                     destPrefix: 'css'
                 },
                 files: {
-                    libs: ['angular-datatables/dist/css/angular-datatables.min.css']
+                    libs: ['angular-datatables/dist/css/angular-datatables.min.css', 'datatables/media/css/jquery.dataTables.min.css']
                 }
             }
         }
