@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Domain", "Va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Infrastructure", "ValarMorghulis.Infrastructure\ValarMorghulis.Infrastructure.csproj", "{A4865890-6EC1-41A6-B238-887EAD599CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.HybridUI", "ValarMorghulis.HybridUI\ValarMorghulis.HybridUI.csproj", "{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.Console", "ValarMorghulis.Console\ValarMorghulis.Console.csproj", "{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.SyncUI", "ValarMorghulis.SyncUI\ValarMorghulis.SyncUI.csproj", "{B2B05261-9DCF-4BF0-BD3B-D66660805F24}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.AsyncUI", "ValarMorghulis.AsyncUI\ValarMorghulis.AsyncUI.csproj", "{A9C93CD1-E398-43FF-83C2-1845B2F667F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.WebAPI", "ValarMorghulis.WebAPI\ValarMorghulis.WebAPI.csproj", "{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValarMorghulis.HybridUI", "ValarMorghulis.HybridUI\ValarMorghulis.HybridUI.csproj", "{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{A4865890-6EC1-41A6-B238-887EAD599CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4865890-6EC1-41A6-B238-887EAD599CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4865890-6EC1-41A6-B238-887EAD599CDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DBA6F62-959D-49B9-AEB5-36E86EFEF3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,13 +55,17 @@ Global
 		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA1086B7-2D7B-4D2B-B456-CBDF87E1C7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7E5F207E-75C9-48E5-8F66-A9FF2140DAA2} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
 		{B2B05261-9DCF-4BF0-BD3B-D66660805F24} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
 		{A9C93CD1-E398-43FF-83C2-1845B2F667F6} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
+		{BB61AE33-B156-4C2D-BB8A-AE4CD093D1D4} = {BDE3F7A5-87A7-4362-ABFB-3C4D6CC1541A}
 	EndGlobalSection
 EndGlobal

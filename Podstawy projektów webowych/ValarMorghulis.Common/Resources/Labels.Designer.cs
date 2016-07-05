@@ -70,6 +70,15 @@ namespace ValarMorghulis.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hybrid UI.
+        /// </summary>
+        public static string HybridUIVersion {
+            get {
+                return ResourceManager.GetString("HybridUIVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sync UI.
         /// </summary>
         public static string UIVersion {

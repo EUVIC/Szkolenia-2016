@@ -120,6 +120,9 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Valar Morghulis - podstawy projektów webowych @ Euvic 2016</value>
   </data>
+  <data name="HybridUIVersion" xml:space="preserve">
+    <value>Hybrid UI</value>
+  </data>
   <data name="UIVersion" xml:space="preserve">
     <value>Sync UI</value>
   </data>

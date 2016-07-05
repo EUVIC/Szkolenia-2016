@@ -6,15 +6,15 @@ using ValarMorghulis.Infrastructure;
 
 namespace ValarMorghulis.HybridUI.App_Start
 {
-	public class AutoMapperConfig
-	{
-		/// <summary>
-		/// Automapper registration.
-		/// </summary>
-		public static void RegisterAutoMapper()
-		{
-			AutoMapperConfiguration config = new AutoMapperConfiguration();
-			config.Configure();
-		}
-	}
+    public class AutoMapperConfig
+    {
+        /// <summary>
+        /// Automapper registration.
+        /// </summary>
+        public static void RegisterAutoMapper()
+        {
+            AutoMapperConfiguration config = new AutoMapperConfiguration();
+            config.Configure();
+        }
+    }
 }
