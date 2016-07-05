@@ -17,9 +17,9 @@ namespace ValarMorghulis.Domain
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public House()
         {
-            this.SwornMemebers = new HashSet<Character>();
             this.Titles = new HashSet<Title>();
             this.Vassals = new HashSet<House>();
+            this.SwornMembers = new HashSet<Character>();
         }
     
         public int Id { get; set; }
@@ -27,16 +27,16 @@ namespace ValarMorghulis.Domain
         public string CoatOfArms { get; set; }
         public string Words { get; set; }
         public int CharacterId { get; set; }
-        public int HouseId { get; set; }
+        public int OverlordId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Character> SwornMemebers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Title> Titles { get; set; }
         public virtual Region Region { get; set; }
-        public virtual Character CurrentLord { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<House> Vassals { get; set; }
         public virtual House Overlord { get; set; }
+        public virtual Character Character { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Character> SwornMembers { get; set; }
     }
 }

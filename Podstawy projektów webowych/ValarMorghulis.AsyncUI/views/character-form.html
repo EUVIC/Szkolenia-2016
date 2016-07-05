@@ -1,0 +1,54 @@
+  <form ng-submit="vm.saveChanges(characterForm.$valid)" name="characterForm" novalidate>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <input ng-maxlength="255" name="name" required ng-model="vm.character.name" type="text" class="form-control" />
+                    <p class="error-block" ng-show="characterForm.name.$error.required && vm.isFormSubmitted">Name cannot be empty.</p>
+                    <p class="error-block" ng-show="characterForm.name.$error.maxlength && vm.isFormSubmitted">Name is too long.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Gender</label>
+                <div class="col-md-10">
+                    <input ng-maxlength="255" name="gender" required ng-model="vm.character.gender" type="text" class="form-control" />
+                    <p class="error-block" ng-show="characterForm.gender.$error.required && vm.isFormSubmitted">Gender cannot be empty.</p>
+                    <p class="error-block" ng-show="characterForm.gender.$error.maxlength && vm.isFormSubmitted">Gender is too long.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Born</label>
+                <div class="col-md-10">
+                    <input ng-maxlength="255" name="born" required ng-model="vm.character.born" type="text" class="form-control" />
+                    <p class="error-block" ng-show="characterForm.born.$error.required && vm.isFormSubmitted">Born cannot be empty.</p>
+                    <p class="error-block" ng-show="characterForm.born.$error.maxlength && vm.isFormSubmitted">Born is too long.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Died</label>
+                <div class="col-md-10">
+                    <input ng-maxlength="255" name="died" required ng-model="vm.character.died" type="text" class="form-control" />
+                    <p class="error-block" ng-show="characterForm.died.$error.required && vm.isFormSubmitted">Died cannot be empty.</p>
+                    <p class="error-block" ng-show="characterForm.died.$error.maxlength && vm.isFormSubmitted">Died is too long.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Culture</label>
+                <div class="col-md-10">
+                    <select name="culture"  ng-model="vm.character.cultureId" ng-options="option.id as option.name for option in vm.availableCultures"
+                    class="form-control" required></select>
+                    <p class="error-block" ng-show="characterForm.culture.$invalid && vm.isFormSubmitted">Culture cannot be empty.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>

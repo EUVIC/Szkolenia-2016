@@ -11,12 +11,19 @@
                 { width: "75%" },
                 { width: "25%" }
             ]);
-        
+        vm.deleteCharacter = deleteCharacter;
+
         // private members
         function getCharacters() {
             charactersService.getCharacters().then(function (result) {
                 vm.characters = result.data;
             });
+        }
+
+        function deleteCharacter(id) {
+            charactersService.deleteCharacter(id).then(function () {
+                getCharacters();
+            })
         }
         
         // activate function

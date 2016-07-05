@@ -25,10 +25,10 @@ namespace ValarMorghulis.Domain
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Character> Characters { get; set; }
         public virtual DbSet<Culture> Cultures { get; set; }
         public virtual DbSet<House> Houses { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<Title> Titles { get; set; }
+        public virtual DbSet<Character> Characters { get; set; }
     }
 }

@@ -41,6 +41,18 @@
                 controller: 'CharacterCreateController',
                 controllerAs: 'vm',
                 parent: 'common'
+            })
+            .state(states.CHARACTER_EDIT, {
+                url: '/characters/edit/{characterId}',
+                templateUrl: 'views/character-edit.html',
+                controller: 'CharacterEditController',
+                controllerAs: 'vm',
+                parent: 'common',
+                resolve: {
+                    character: function ($stateParams, charactersService) {
+                        return charactersService.getCharacterDetails($stateParams.characterId);
+                    }
+                }
             });
         $urlRouterProvider.otherwise('/');
     }

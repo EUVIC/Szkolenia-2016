@@ -31,7 +31,8 @@ namespace ValarMorghulis.Infrastructure
 				// VM to Entity
 				// Character
 				cfg.CreateMap<CreateCharacterViewModel, Character>();
-			});
+                cfg.CreateMap<UpdateCharacterViewModel, Character>();
+            });
 			characterMapper = characterConfig.CreateMapper();
 		}
 	}

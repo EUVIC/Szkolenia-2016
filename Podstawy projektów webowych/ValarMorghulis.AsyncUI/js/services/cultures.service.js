@@ -14,7 +14,7 @@
         return culturesService;
 
         function getCultures() {
-            return $http.get(apiURI + '/Cultures/GetCultures/');
+            return $http.get(apiURI + '/cultures');
         }
     };
 

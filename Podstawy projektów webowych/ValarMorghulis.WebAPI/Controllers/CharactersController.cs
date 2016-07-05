@@ -15,12 +15,14 @@ namespace ValarMorghulis.WebAPI.Controllers
     {
         private readonly CharacterService service = new CharacterService();
 
+        [HttpGet]
         public IHttpActionResult GetCharacters()
         {
             var result = service.GetCharacters();
             return Ok(result);
         }
 
+        [HttpGet]
         public IHttpActionResult GetCharacterDetails(int id)
         {
             var result = service.GetCharacterDetails(id);
@@ -31,6 +33,20 @@ namespace ValarMorghulis.WebAPI.Controllers
         public IHttpActionResult CreateCharacter([FromBody]CreateCharacterViewModel vm)
         {
             service.CreateCharacter(vm);
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult UpdateCharacter(int id, [FromBody]UpdateCharacterViewModel vm)
+        {
+            service.UpdateCharacter(id, vm);
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteCharacter(int id)
+        {
+            service.DeleteCharacter(id);
             return Ok();
         }
     }

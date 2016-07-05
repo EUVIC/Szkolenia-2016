@@ -61,6 +61,7 @@
     <Compile Include="ViewModels\Character\CreateCharacterViewModel.cs" />
     <Compile Include="ViewModels\Character\CharacterListElementViewModel.cs" />
     <Compile Include="ViewModels\Character\CharacterDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Character\UpdateCharacterViewModel.cs" />
     <Compile Include="ViewModels\Culture\CultureSelectListItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

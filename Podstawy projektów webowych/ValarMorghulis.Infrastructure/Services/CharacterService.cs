@@ -36,5 +36,19 @@ namespace ValarMorghulis.Infrastructure.Services
 			characterRepository.Add(entity);
 			characterRepository.Save();
 		}
-	}
+
+        public void UpdateCharacter(int id, UpdateCharacterViewModel viewModel)
+        {
+            Character entity = characterRepository.GetSingle(id);
+            AutoMapperConfiguration.characterMapper.Map(viewModel, entity);
+            characterRepository.Save();
+        }
+
+        public void DeleteCharacter(int id)
+        {
+            Character entity = characterRepository.GetSingle(id);
+            characterRepository.Delete(entity);
+            characterRepository.Save();
+        }
+    }
 }

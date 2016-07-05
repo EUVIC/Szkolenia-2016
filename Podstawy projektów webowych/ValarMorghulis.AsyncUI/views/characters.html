@@ -11,11 +11,11 @@
         </thead>
         <tbody>
             <tr ng-repeat="character in vm.characters">
-                <td>{{character.Name}}</td>
+                <td>{{character.name}}</td>
                 <td>
-                    <a ui-sref="character-details({ characterId: character.Id })" class="btn btn-default btn-sm">Details</a>
-                    <a class="btn btn-default btn-sm">Edit</a>
-                    <a ui-sref="create-character" class="btn btn-danger btn-sm">Delete</a>
+                    <a ui-sref="character-details({ characterId: character.id })" class="btn btn-default btn-sm">Details</a>
+                    <a ui-sref="character-edit({ characterId: character.id })" class="btn btn-default btn-sm">Edit</a>
+                    <a data-ng-click="vm.deleteCharacter(character.id)" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         </tbody>

@@ -10,21 +10,31 @@
         var charactersService = {
             getCharacters: getCharacters,
             getCharacterDetails: getCharacterDetails,
-            createCharacter: createCharacter
+            createCharacter: createCharacter,
+            deleteCharacter: deleteCharacter,
+            updateCharacter: updateCharacter
         };
 
         return charactersService;
 
         function getCharacters() {
-            return $http.get(apiURI + '/Characters/GetCharacters/');
+            return $http.get(apiURI + '/characters');
         }
 
         function getCharacterDetails(id) {
-            return $http.get(apiURI + '/Characters/GetCharacterDetails/' + id);
+            return $http.get(apiURI + '/characters/' + id);
         }
-        
+
         function createCharacter(vm) {
-            return $http.post(apiURI + '/Characters/CreateCharacter', vm);
+            return $http.post(apiURI + '/characters', vm);
+        }
+
+        function updateCharacter(vm) {
+            return $http.put(apiURI + '/characters/' + vm.id, vm);
+        }
+
+        function deleteCharacter(id) {
+            return $http.delete(apiURI + '/characters/' + id);
         }
     };
 
