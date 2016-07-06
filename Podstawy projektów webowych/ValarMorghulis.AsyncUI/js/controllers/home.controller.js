@@ -4,4 +4,4 @@
 	function HomeController($timeout, $state, $rootScope, $http, states) {
 		var vm = this;
     }
-});
+})();

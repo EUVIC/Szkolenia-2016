@@ -1,1 +1,23 @@
-TEST
+<div class="row">
+    <a ui-sref="character-create" class="btn btn-primary">Create</a>
+</div>
+<div class="row">
+    <table dt-options="vm.dtOptions" id="characters-table" class="row-border hover" datatable="ng">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="character in vm.characters">
+                <td>{{character.name}}</td>
+                <td>
+                    <a ui-sref="character-details({ characterId: character.id })" class="btn btn-default btn-sm">Details</a>
+                    <a ui-sref="character-edit({ characterId: character.id })" class="btn btn-default btn-sm">Edit</a>
+                    <a data-ng-click="vm.deleteCharacter(character.id)" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -30,17 +30,12 @@
 			vm.isLoading = data;
 		});
 
+        // DISCLAIMER:
+        // for presentation purposes only
+        // $http.pendingRequests should not be used and is primarily meant to be used for debugging purposes
 		vm.isLoaderVisible = function () {
 			// display loader whether there are pending requests or it was manually displayed
 			return $http.pendingRequests.length > 0 || vm.isLoading;
-		}
-
-		vm.isMenuElementActive = function (state) {
-			return $state.current.name === state;
-		}
-
-		vm.logOutButtonClick = function () {
-			authService.logout();
 		}
 	}
 

@@ -11,8 +11,11 @@
 
     <title>Valar Morghulis</title>
 
+    <link href="css/libs/jquery.dataTables.min.css" rel="stylesheet">
     <link href="css/libs/angular-datatables.min.css" rel="stylesheet">
     <link href="css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/loader.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,12 +32,20 @@
     <!-- APP scripts -->
     <script src="js/app.module.js"></script>
     <script src="js/app.constants.js"></script>
-
+    <script src="js/app.config.js"></script>
     <script src="js/modules/controllers.module.js"></script>
+    <script src="js/modules/services.module.js"></script>
+    <script src="js/modules/widgets.module.js"></script>
     <script src="js/controllers/common.controller.js"></script>
     <script src="js/controllers/home.controller.js"></script>
     <script src="js/controllers/characters.controller.js"></script>
-    <script src="js/app.config.js"></script>
+    <script src="js/controllers/character-details.controller.js"></script>
+    <script src="js/controllers/character-create.controller.js"></script>
+    <script src="js/controllers/character-edit.controller.js"></script>
+    <script src="js/services/characters.service.js"></script>
+    <script src="js/services/cultures.service.js"></script>
+    <script src="js/widgets/loader.directive.js"></script>
+    <script src="js/widgets/character-form.directive.js"></script>
 </body>
 
 </html>

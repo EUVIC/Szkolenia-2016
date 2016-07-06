@@ -66,12 +66,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\app.css" />
     <Content Include="css\libs\angular-datatables.min.css" />
     <Content Include="css\libs\bootstrap.min.css" />
+    <Content Include="css\libs\jquery.dataTables.min.css" />
+    <Content Include="css\loader.css" />
+    <Content Include="css\images\sort_asc.png" />
+    <Content Include="css\images\sort_asc_disabled.png" />
+    <Content Include="css\images\sort_both.png" />
+    <Content Include="css\images\sort_desc.png" />
+    <Content Include="css\images\sort_desc_disabled.png" />
+    <Content Include="images\spin.gif" />
     <Content Include="js\app.config.js" />
     <Content Include="js\app.constants.js" />
     <Content Include="js\controllers\character-create.controller.js" />
     <Content Include="js\controllers\character-details.controller.js" />
+    <Content Include="js\controllers\character-edit.controller.js" />
     <Content Include="js\controllers\characters.controller.js" />
     <Content Include="js\controllers\common.controller.js" />
     <Content Include="js\controllers\home.controller.js" />
@@ -87,7 +97,11 @@
     <Content Include="js\libs\src\jquery.min.js" />
     <Content Include="js\modules\controllers.module.js" />
     <Content Include="js\modules\services.module.js" />
+    <Content Include="js\modules\widgets.module.js" />
     <Content Include="js\services\characters.service.js" />
+    <Content Include="js\services\cultures.service.js" />
+    <Content Include="js\widgets\character-form.directive.js" />
+    <Content Include="js\widgets\loader.directive.js" />
     <Content Include="packages.config" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
@@ -102,6 +116,10 @@
     <Content Include="gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="js\app.module.js" />
+    <Content Include="views\character-create.html" />
+    <Content Include="views\character-details.html" />
+    <Content Include="views\character-edit.html" />
+    <Content Include="views\character-form.html" />
     <Content Include="views\characters.html" />
     <Content Include="views\common.html" />
     <Content Include="views\home.html" />
@@ -110,9 +128,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="js\widgets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

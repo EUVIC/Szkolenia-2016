@@ -1,40 +1,54 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
 using ValarMorghulis.Domain.Repositories;
-using ValarMorghulis.Infrastructure.ViewModels.Character;
+using ValarMorghulis.Infrastructure.Models;
 
 namespace ValarMorghulis.Infrastructure.Services
 {
 	public class CharacterService
 	{
 		private readonly ICharacterRepository characterRepository;
-		private readonly ICultureRepository cultureRepository;
 
 		public CharacterService()
 		{
 			characterRepository = new CharacterRepository();
 		}
 
-		public CharacterDetailsViewModel GetCharacterDetails(int id)
+		public CharacterDTO GetCharacterDetails(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
-			return AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(entity);
+			return Mapper.Map<CharacterDTO>(entity);
 		}
 
-		public IEnumerable<CharacterListElementViewModel> GetCharacters()
+		public IEnumerable<CharacterDTO> GetCharacters()
 		{
 			IQueryable<Character> entities = characterRepository.GetAll();
-			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(entities);
+			return Mapper.Map<IEnumerable<CharacterDTO>>(entities);
 		}
 
-		public void CreateCharacter(CreateCharacterViewModel viewModel)
+		public void CreateCharacter(CharacterDTO viewModel)
 		{
-			Character entity = AutoMapperConfiguration.characterMapper.Map<Character>(viewModel);
+			Character entity = Mapper.Map<Character>(viewModel);
 			characterRepository.Add(entity);
 			characterRepository.Save();
 		}
-	}
+
+        public void UpdateCharacter(int id, CharacterDTO viewModel)
+        {
+            Character entity = characterRepository.GetSingle(id);
+            Mapper.Map(viewModel, entity);
+            characterRepository.Save();
+        }
+
+        public void DeleteCharacter(int id)
+        {
+            Character entity = characterRepository.GetSingle(id);
+            characterRepository.Delete(entity);
+            characterRepository.Save();
+        }
+    }
 }

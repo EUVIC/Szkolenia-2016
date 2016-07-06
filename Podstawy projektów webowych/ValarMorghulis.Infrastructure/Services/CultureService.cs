@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
 using ValarMorghulis.Domain.Repositories;
-using ValarMorghulis.Infrastructure.ViewModels.Culture;
+using ValarMorghulis.Infrastructure.Models;
 
 namespace ValarMorghulis.Infrastructure.Services
 {
@@ -19,10 +20,10 @@ namespace ValarMorghulis.Infrastructure.Services
 			cultureRepository = new CultureRepository();
 		}
 
-		public IEnumerable<CultureSelectListItemViewModel> GetCultures()
+		public IEnumerable<CultureDTO> GetCultures()
 		{
 			IQueryable<Culture> entities = cultureRepository.GetAll();
-			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CultureSelectListItemViewModel>>(entities);
+			return Mapper.Map<IEnumerable<CultureDTO>>(entities);
 		}
 	}
 }
