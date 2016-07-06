@@ -57,7 +57,13 @@
         $urlRouterProvider.otherwise('/');
     }
 
-    function runBlock() {
+    runBlock.$inject = ['$rootScope', '$state', 'sweet', 'states'];
 
+    function runBlock($rootScope, $state, sweet, states) {
+        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            // very simple error handling for presentation purposes
+            sweet.show('Oops...', error.data.message, 'error');
+            $state.go(states.CHARACTERS);
+        });
     }
 })();

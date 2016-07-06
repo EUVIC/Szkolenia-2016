@@ -123,6 +123,12 @@
   <data name="BornLabel" xml:space="preserve">
     <value>Born</value>
   </data>
+  <data name="CharacterDoesNotExistError" xml:space="preserve">
+    <value>Character does not exist.</value>
+  </data>
+  <data name="CharacterNameAlreadyTakenError" xml:space="preserve">
+    <value>Character name already taken.</value>
+  </data>
   <data name="CultureLabel" xml:space="preserve">
     <value>Culture</value>
   </data>

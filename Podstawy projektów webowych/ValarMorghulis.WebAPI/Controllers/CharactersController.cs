@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using ValarMorghulis.Common.Exceptions;
+using ValarMorghulis.Common.Resources;
 using ValarMorghulis.Infrastructure.Models;
 using ValarMorghulis.Infrastructure.Services;
 
@@ -25,29 +27,65 @@ namespace ValarMorghulis.WebAPI.Controllers
         [HttpGet]
         public IHttpActionResult GetCharacterDetails(int id)
         {
-            var result = service.GetCharacterDetails(id);
-            return Ok(result);
+            try
+            {
+                var result = service.GetCharacterDetails(id);
+                return Ok(result);
+            }
+            catch (CharacterDoesNotExistException)
+            {
+                return BadRequest(Labels.CharacterDoesNotExistError);
+            }
         }
 
         [HttpPost]
         public IHttpActionResult CreateCharacter([FromBody]CharacterDTO vm)
         {
-            service.CreateCharacter(vm);
-            return Ok();
+            try
+            {
+                service.CreateCharacter(vm);
+                return Ok();
+            }
+            catch (CharacterNameAlreadyTakenException)
+            {
+                return BadRequest(Labels.CharacterNameAlreadyTakenError);
+            }
+            catch (CharacterDoesNotExistException)
+            {
+                return BadRequest(Labels.CharacterDoesNotExistError);
+            }
         }
 
         [HttpPut]
         public IHttpActionResult UpdateCharacter(int id, [FromBody]CharacterDTO vm)
         {
-            service.UpdateCharacter(id, vm);
-            return Ok();
+            try
+            {
+                service.UpdateCharacter(id, vm);
+                return Ok();
+            }
+            catch (CharacterNameAlreadyTakenException)
+            {
+                return BadRequest(Labels.CharacterNameAlreadyTakenError);
+            }
+            catch (CharacterDoesNotExistException)
+            {
+                return BadRequest(Labels.CharacterDoesNotExistError);
+            }
         }
 
         [HttpDelete]
         public IHttpActionResult DeleteCharacter(int id)
         {
-            service.DeleteCharacter(id);
-            return Ok();
+            try
+            {
+                service.DeleteCharacter(id);
+                return Ok();
+            }
+            catch (CharacterDoesNotExistException)
+            {
+                return BadRequest(Labels.CharacterDoesNotExistError);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-ui-router": "^0.3.1",
-    "angular-datatables": "^0.5.4"
+    "angular-datatables": "^0.5.4",
+    "angular-sweetalert": "angular-h-sweetalert#^1.4.7"
   }
 }

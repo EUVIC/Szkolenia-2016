@@ -79,6 +79,24 @@ namespace ValarMorghulis.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Character does not exist..
+        /// </summary>
+        public static string CharacterDoesNotExistError {
+            get {
+                return ResourceManager.GetString("CharacterDoesNotExistError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Character name already taken..
+        /// </summary>
+        public static string CharacterNameAlreadyTakenError {
+            get {
+                return ResourceManager.GetString("CharacterNameAlreadyTakenError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Culture.
         /// </summary>
         public static string CultureLabel {

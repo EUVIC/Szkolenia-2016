@@ -1,7 +1,7 @@
 (function () {
     angular.module('app.controllers').controller('CharacterCreateController', CharacterCreateController);
 
-    function CharacterCreateController($state, culturesService, charactersService, states) {
+    function CharacterCreateController($state, sweet, culturesService, charactersService, states) {
         var vm = this;
         
         // public members
@@ -14,7 +14,9 @@
         function saveChanges() {
             charactersService.createCharacter(vm.newCharacter).then(function () {
                 $state.go(states.CHARACTERS);
-            })
+            }, function(response) {
+                sweet.show('Oops...', response.data.message, 'error');
+            });
         }
     }
 })();

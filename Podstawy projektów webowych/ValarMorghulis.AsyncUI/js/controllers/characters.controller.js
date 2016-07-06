@@ -1,7 +1,7 @@
 (function () {
     angular.module('app.controllers').controller('CharactersController', CharactersController);
 
-    function CharactersController(DTOptionsBuilder, charactersService, states) {
+    function CharactersController(sweet, DTOptionsBuilder, charactersService, states) {
         var vm = this;
         
         // public members
@@ -21,9 +21,17 @@
         }
 
         function deleteCharacter(id) {
-            charactersService.deleteCharacter(id).then(function () {
-                getCharacters();
-            })
+            sweet.show({
+                title: 'Confirm',
+                text: 'Delete this record?',
+                type: 'warning',
+                showCancelButton: true,
+            }, function () {
+                charactersService.deleteCharacter(id).then(function () {
+                    getCharacters();
+                })
+            });
+
         }
         
         // activate function
