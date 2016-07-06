@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ValarMorghulis.Infrastructure;
 using ValarMorghulis.SyncUI.App_Start;
 
 namespace ValarMorghulis.SyncUI
@@ -17,7 +18,11 @@ namespace ValarMorghulis.SyncUI
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
-			AutoMapperConfig.RegisterAutoMapper();
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<SyncUIMappingProfile>();
+                cfg.AddProfile<InfrastructureMappingProfile>();
+            });
 		}
 	}
 }

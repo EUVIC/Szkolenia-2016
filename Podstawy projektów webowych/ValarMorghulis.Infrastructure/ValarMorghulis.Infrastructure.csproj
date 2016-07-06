@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="InfrastructureMappingProfile.cs" />
     <Compile Include="Models\CharacterDTO.cs" />
     <Compile Include="Models\CharacterListElementDTO.cs" />
     <Compile Include="Models\CultureDTO.cs" />

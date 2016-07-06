@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,7 +23,7 @@ namespace ValarMorghulis.HybridUI.Controllers
         // GET: Character/Details/5
         public ActionResult Details(int id)
         {
-            CharacterDetailsViewModel model = AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(characterService.GetCharacterDetails(id));
+            CharacterDetailsViewModel model = Mapper.Map<CharacterDetailsViewModel>(characterService.GetCharacterDetails(id));
             return View(model);
         }
 
@@ -39,7 +40,7 @@ namespace ValarMorghulis.HybridUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                characterService.CreateCharacter(AutoMapperConfiguration.characterMapper.Map<CharacterDTO>(viewModel));
+                characterService.CreateCharacter(Mapper.Map<CharacterDTO>(viewModel));
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError(string.Empty, "Form data is invalid.");
@@ -53,7 +54,7 @@ namespace ValarMorghulis.HybridUI.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var result = AutoMapperConfiguration.characterMapper.Map<UpdateCharacterViewModel>(characterService.GetCharacterDetails(id));
+                    var result = Mapper.Map<UpdateCharacterViewModel>(characterService.GetCharacterDetails(id));
                     return View("Edit", result);
                 }
                 return View();
@@ -71,7 +72,7 @@ namespace ValarMorghulis.HybridUI.Controllers
             if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
-                characterService.UpdateCharacter(id, AutoMapperConfiguration.characterMapper.Map<CharacterDTO>(viewModel));
+                characterService.UpdateCharacter(id, Mapper.Map<CharacterDTO>(viewModel));
                 return RedirectToAction("Index");
             }
             else
@@ -89,7 +90,7 @@ namespace ValarMorghulis.HybridUI.Controllers
 
         public JsonResult GetCharacters()
         {
-            var result = AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(characterService.GetCharacters());
+            var result = Mapper.Map<IEnumerable<CharacterListElementViewModel>>(characterService.GetCharacters());
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

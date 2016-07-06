@@ -12,10 +12,10 @@ namespace ValarMorghulis.Console
 	{
 		static void Main(string[] args)
 		{
-			AutoMapperConfig.RegisterAutoMapper();
-			var characterService = new CharacterService();
+			//AutoMapperConfig.RegisterAutoMapper();
+			//var characterService = new CharacterService();
 
-			var characterDetails = characterService.GetCharacterDetails(1);
+			//var characterDetails = characterService.GetCharacterDetails(1);
 		}
 	}
 }

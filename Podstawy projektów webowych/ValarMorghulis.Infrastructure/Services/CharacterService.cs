@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ValarMorghulis.Domain;
@@ -11,7 +12,6 @@ namespace ValarMorghulis.Infrastructure.Services
 	public class CharacterService
 	{
 		private readonly ICharacterRepository characterRepository;
-		private readonly ICultureRepository cultureRepository;
 
 		public CharacterService()
 		{
@@ -21,18 +21,18 @@ namespace ValarMorghulis.Infrastructure.Services
 		public CharacterDTO GetCharacterDetails(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
-			return AutoMapperConfiguration.characterMapper.Map<CharacterDTO>(entity);
+			return Mapper.Map<CharacterDTO>(entity);
 		}
 
 		public IEnumerable<CharacterListElementDTO> GetCharacters()
 		{
 			IQueryable<Character> entities = characterRepository.GetAll();
-			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementDTO>>(entities);
+			return Mapper.Map<IEnumerable<CharacterListElementDTO>>(entities);
 		}
 
 		public void CreateCharacter(CharacterDTO viewModel)
 		{
-			Character entity = AutoMapperConfiguration.characterMapper.Map<Character>(viewModel);
+			Character entity = Mapper.Map<Character>(viewModel);
 			characterRepository.Add(entity);
 			characterRepository.Save();
 		}
@@ -40,7 +40,7 @@ namespace ValarMorghulis.Infrastructure.Services
         public void UpdateCharacter(int id, CharacterDTO viewModel)
         {
             Character entity = characterRepository.GetSingle(id);
-            AutoMapperConfiguration.characterMapper.Map(viewModel, entity);
+            Mapper.Map(viewModel, entity);
             characterRepository.Save();
         }
 

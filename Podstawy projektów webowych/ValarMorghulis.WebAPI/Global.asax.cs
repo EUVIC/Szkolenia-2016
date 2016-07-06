@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
-using ValarMorghulis.WebAPI.App_Start;
+using ValarMorghulis.Infrastructure;
 
 namespace ValarMorghulis.WebAPI
 {
@@ -15,7 +15,10 @@ namespace ValarMorghulis.WebAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            AutoMapperConfig.RegisterAutoMapper();
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<InfrastructureMappingProfile>();
+            });
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;

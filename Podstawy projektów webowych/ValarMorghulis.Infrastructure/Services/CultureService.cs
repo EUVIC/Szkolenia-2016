@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace ValarMorghulis.Infrastructure.Services
 		public IEnumerable<CultureDTO> GetCultures()
 		{
 			IQueryable<Culture> entities = cultureRepository.GetAll();
-			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CultureDTO>>(entities);
+			return Mapper.Map<IEnumerable<CultureDTO>>(entities);
 		}
 	}
 }

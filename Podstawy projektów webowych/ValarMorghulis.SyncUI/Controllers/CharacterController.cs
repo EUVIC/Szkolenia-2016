@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,14 +19,14 @@ namespace ValarMorghulis.SyncUI.Controllers
         // GET: Character
         public ActionResult Index()
         {
-            IEnumerable<CharacterListElementViewModel> modelCollection = AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(characterService.GetCharacters());
+            IEnumerable<CharacterListElementViewModel> modelCollection = Mapper.Map<IEnumerable<CharacterListElementViewModel>>(characterService.GetCharacters());
             return View(modelCollection);
         }
 
         // GET: Character/Details/5
         public ActionResult Details(int id)
         {
-            CharacterDetailsViewModel model = AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(characterService.GetCharacterDetails(id));
+            CharacterDetailsViewModel model = Mapper.Map<CharacterDetailsViewModel>(characterService.GetCharacterDetails(id));
             return View(model);
         }
 
@@ -33,7 +34,7 @@ namespace ValarMorghulis.SyncUI.Controllers
         public ActionResult Create()
         {
             var viewModel = new CreateCharacterViewModel();
-            viewModel.CultureOptions = AutoMapperConfiguration.characterMapper.Map<IEnumerable<CultureSelectListItemViewModel>>(cultureService.GetCultures());
+            viewModel.CultureOptions = Mapper.Map<IEnumerable<CultureSelectListItemViewModel>>(cultureService.GetCultures());
             return View(viewModel);
         }
 
@@ -46,7 +47,7 @@ namespace ValarMorghulis.SyncUI.Controllers
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    characterService.CreateCharacter(AutoMapperConfiguration.characterMapper.Map<CharacterDTO>(viewModel));
+                    characterService.CreateCharacter(Mapper.Map<CharacterDTO>(viewModel));
                     return RedirectToAction("Index");
                 }
                 ModelState.AddModelError(string.Empty, "Form data is invalid.");
