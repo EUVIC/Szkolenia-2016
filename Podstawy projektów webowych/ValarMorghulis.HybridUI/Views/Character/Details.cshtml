@@ -1,11 +1,12 @@
-﻿@model ValarMorghulis.HybridUI.Models.CharacterDetailsViewModel
+﻿@model ValarMorghulis.HybridUI.ViewModels.CharacterDetailsViewModel
 @{
     ViewBag.Title = "Character details";
 }
 
+<h4>Character details</h4>
+<hr />
+
 <div>
-    <h4>Character details</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -38,6 +39,14 @@
         <dd>
             @Html.DisplayFor(model => model.Died)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CultureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CultureName)
+        </dd>
+
 
     </dl>
 </div>

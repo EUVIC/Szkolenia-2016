@@ -352,7 +352,7 @@
           <Property Name="Born" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Died" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CultureId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cultures" Relationship="VMDB.FK_CharacterCulture" FromRole="Characters" ToRole="Culture" />
+          <NavigationProperty Name="Culture" Relationship="VMDB.FK_CharacterCulture" FromRole="Characters" ToRole="Culture" />
           <NavigationProperty Name="House" Relationship="VMDB.FK_CharacterHouse1" FromRole="Characters" ToRole="House" />
           <NavigationProperty Name="Houses" Relationship="VMDB.CharacterHouse" FromRole="Characters" ToRole="House" />
           <NavigationProperty Name="Titles" Relationship="VMDB.CharacterTitle" FromRole="Characters" ToRole="Title" />

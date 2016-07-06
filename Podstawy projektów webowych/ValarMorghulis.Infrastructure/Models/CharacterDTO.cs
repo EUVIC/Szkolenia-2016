@@ -13,6 +13,7 @@ namespace ValarMorghulis.Infrastructure.Models
         public string Gender { get; set; }
         public string Born { get; set; }
         public string Died { get; set; }
+        public string CultureName { get; set; }
         public int CultureId { get; set; }
     }
 }

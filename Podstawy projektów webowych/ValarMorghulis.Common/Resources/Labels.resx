@@ -120,10 +120,25 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Valar Morghulis - podstawy projektów webowych @ Euvic 2016</value>
   </data>
+  <data name="BornLabel" xml:space="preserve">
+    <value>Born</value>
+  </data>
+  <data name="CultureLabel" xml:space="preserve">
+    <value>Culture</value>
+  </data>
+  <data name="DiedLabel" xml:space="preserve">
+    <value>Died</value>
+  </data>
+  <data name="GenderLabel" xml:space="preserve">
+    <value>Gender</value>
+  </data>
   <data name="HybridUIVersion" xml:space="preserve">
     <value>Hybrid UI</value>
   </data>
-  <data name="UIVersion" xml:space="preserve">
+  <data name="NameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="SyncUIVersion" xml:space="preserve">
     <value>Sync UI</value>
   </data>
 </root>

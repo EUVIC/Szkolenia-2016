@@ -176,10 +176,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CharacterDetailsViewModel.cs" />
-    <Compile Include="Models\CharacterListElementViewModel.cs" />
-    <Compile Include="Models\CreateCharacterViewModel.cs" />
-    <Compile Include="Models\UpdateCharacterViewModel.cs" />
+    <Compile Include="ViewModels\CharacterDetailsViewModel.cs" />
+    <Compile Include="ViewModels\CharacterListElementViewModel.cs" />
+    <Compile Include="ViewModels\CreateCharacterViewModel.cs" />
+    <Compile Include="ViewModels\UpdateCharacterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

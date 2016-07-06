@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValarMorghulis.HybridUI.Models
+namespace ValarMorghulis.HybridUI.ViewModels
 {
 	public class CharacterListElementViewModel
 	{

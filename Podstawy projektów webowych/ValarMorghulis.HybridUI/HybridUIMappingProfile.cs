@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ValarMorghulis.HybridUI.Models;
+using ValarMorghulis.HybridUI.ViewModels;
 using ValarMorghulis.Infrastructure.Models;
 
 namespace ValarMorghulis.HybridUI

@@ -29,7 +29,7 @@ namespace ValarMorghulis.Domain
         public string Died { get; set; }
         public int CultureId { get; set; }
     
-        public virtual Culture Cultures { get; set; }
+        public virtual Culture Culture { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<House> House { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
