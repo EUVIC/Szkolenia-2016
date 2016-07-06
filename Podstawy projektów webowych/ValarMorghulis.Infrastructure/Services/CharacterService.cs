@@ -24,10 +24,10 @@ namespace ValarMorghulis.Infrastructure.Services
 			return Mapper.Map<CharacterDTO>(entity);
 		}
 
-		public IEnumerable<CharacterListElementDTO> GetCharacters()
+		public IEnumerable<CharacterDTO> GetCharacters()
 		{
 			IQueryable<Character> entities = characterRepository.GetAll();
-			return Mapper.Map<IEnumerable<CharacterListElementDTO>>(entities);
+			return Mapper.Map<IEnumerable<CharacterDTO>>(entities);
 		}
 
 		public void CreateCharacter(CharacterDTO viewModel)

@@ -20,7 +20,6 @@ namespace ValarMorghulis.Infrastructure
             CreateMap<Culture, CultureDTO>();
 
             CreateMap<Character, CharacterDTO>();
-            CreateMap<Character, CharacterListElementDTO>();
         }
     }
 }

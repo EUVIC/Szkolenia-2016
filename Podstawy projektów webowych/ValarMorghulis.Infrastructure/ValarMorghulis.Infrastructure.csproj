@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="InfrastructureMappingProfile.cs" />
     <Compile Include="Models\CharacterDTO.cs" />
-    <Compile Include="Models\CharacterListElementDTO.cs" />
     <Compile Include="Models\CultureDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CharacterService.cs" />
