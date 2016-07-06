@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ValarMorghulis.Common\ValarMorghulis.Common.csproj">
+      <Project>{C8527147-35FB-4D25-9F90-893AFF3F37B4}</Project>
+      <Name>ValarMorghulis.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ValarMorghulis.Domain\ValarMorghulis.Domain.csproj">
       <Project>{a1bcc761-2f21-4284-a1a9-373baf7e7d2a}</Project>
       <Name>ValarMorghulis.Domain</Name>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ValarMorghulis.Common.Exceptions;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
 using ValarMorghulis.Domain.Repositories;
@@ -19,6 +20,15 @@ namespace ValarMorghulis.Infrastructure.Services
 			characterRepository = new CharacterRepository();
 		}
 
+		private bool IsCharacterNameAlreadyTaken(string name, int? editedCharacterId = null)
+		{
+			if (editedCharacterId.HasValue)
+			{
+				return characterRepository.GetAll().Any(c => c.Name == name && c.Id != editedCharacterId);
+			}
+			return characterRepository.GetAll().Any(c => c.Name == name);
+		}
+
 		public CharacterWithIdDTO GetCharacterDetails(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
@@ -33,7 +43,13 @@ namespace ValarMorghulis.Infrastructure.Services
 
 		public void CreateCharacter(CharacterDTO viewModel)
 		{
+			if (IsCharacterNameAlreadyTaken(viewModel.Name))
+			{
+				throw new CharacterNameAlreadyTakenException();
+			}
+
 			Character entity = Mapper.Map<Character>(viewModel);
+
 			characterRepository.Add(entity);
 			characterRepository.Save();
 		}
@@ -41,6 +57,16 @@ namespace ValarMorghulis.Infrastructure.Services
 		public void UpdateCharacter(int id, ICharacterDTO viewModel)
 		{
 			Character entity = characterRepository.GetSingle(id);
+
+			if (entity == null)
+			{
+				throw new CharacterDoesNotExistException();
+			}
+			if (IsCharacterNameAlreadyTaken(viewModel.Name, id))
+			{
+				throw new CharacterNameAlreadyTakenException();
+			}
+
 			Mapper.Map(viewModel, entity);
 			characterRepository.Save();
 		}
@@ -53,6 +79,12 @@ namespace ValarMorghulis.Infrastructure.Services
 		public void DeleteCharacter(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
+
+			if (entity == null)
+			{
+				throw new CharacterDoesNotExistException();
+			}
+
 			characterRepository.Delete(entity);
 			characterRepository.Save();
 		}
