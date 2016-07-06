@@ -9,18 +9,19 @@ using ValarMorghulis.SyncUI.ViewModels.Culture;
 
 namespace ValarMorghulis.SyncUI
 {
-    public class SyncUIMappingProfile : Profile
-    {
-        public SyncUIMappingProfile()
-        {
-            CreateMap<CharacterDTO, CharacterDetailsViewModel>();
-            CreateMap<CharacterDTO, UpdateCharacterViewModel>();
-            CreateMap<CharacterListElementDTO, CharacterListElementViewModel>();
-            CreateMap<CultureDTO, CultureSelectListItemViewModel>();
+	public class SyncUIMappingProfile : Profile
+	{
+		public SyncUIMappingProfile()
+		{
+			CreateMap<CharacterWithIdDTO, CharacterDetailsViewModel>();
+			CreateMap<CharacterWithIdDTO, UpdateCharacterViewModel>();			
+			CreateMap<CharacterWithIdDTO, CharacterListElementViewModel>();
 
-            CreateMap<UpdateCharacterViewModel, CharacterDTO>()
-                .ForMember(d => d.Id, opt => opt.Ignore());
-            CreateMap<CreateCharacterViewModel, CharacterDTO>();
-        }
-    }
+			CreateMap<CultureDTO, CultureSelectListItemViewModel>();
+
+			CreateMap<UpdateCharacterViewModel, CharacterWithIdDTO>();
+
+			CreateMap<CreateCharacterViewModel, CharacterDTO>();
+		}
+	}
 }

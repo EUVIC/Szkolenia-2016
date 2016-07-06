@@ -10,6 +10,8 @@ BEGIN
 		SELECT 3, 'Braavosi'
 		UNION ALL
 		SELECT 4, 'Westermen'
+		UNION ALL
+		SELECT 4, 'Valyrian'
 	SET IDENTITY_INSERT [dbo].[Cultures] OFF
 END
 

@@ -14,12 +14,14 @@ namespace ValarMorghulis.Infrastructure
     {
         public InfrastructureMappingProfile()
         {
-            CreateMap<CharacterDTO, Character>()
-                .ForMember(d => d.Id, opt => opt.Ignore());
+			CreateMap<CharacterDTO, Character>();
 
-            CreateMap<Culture, CultureDTO>();
+			CreateMap<CharacterWithIdDTO, Character>();
+			
+			CreateMap<Culture, CultureDTO>();
 
             CreateMap<Character, CharacterDTO>();
-        }
+			CreateMap<Character, CharacterWithIdDTO>();
+		}
     }
 }

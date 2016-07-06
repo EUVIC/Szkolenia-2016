@@ -14,11 +14,12 @@ namespace ValarMorghulis.HybridUI
     {
         public HybridUIMappingProfile()
         {
-            CreateMap<CharacterDTO, CharacterDetailsViewModel>();
-            CreateMap<CharacterDTO, UpdateCharacterViewModel>();
-            CreateMap<CharacterListElementDTO, CharacterListElementViewModel>();
+            CreateMap<CharacterWithIdDTO, CharacterDetailsViewModel>();
+            CreateMap<CharacterWithIdDTO, UpdateCharacterViewModel>();
+            CreateMap<CharacterWithIdDTO, CharacterListElementViewModel>();
 
-            CreateMap<UpdateCharacterViewModel, CharacterDTO>()
+            CreateMap<UpdateCharacterViewModel, CharacterWithIdDTO>()
+				// TODO: Czemu ignore Id?
                 .ForMember(d => d.Id, opt => opt.Ignore());
             CreateMap<CreateCharacterViewModel, CharacterDTO>();
         }

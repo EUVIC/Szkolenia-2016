@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using ValarMorghulis.Infrastructure;
-using ValarMorghulis.SyncUI.App_Start;
+using ValarMorghulis.Infrastructure.Models;
+using ValarMorghulis.SyncUI.ViewModels.Character;
 
 namespace ValarMorghulis.SyncUI
 {
@@ -20,7 +21,7 @@ namespace ValarMorghulis.SyncUI
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.AddProfile<SyncUIMappingProfile>();
+				cfg.AddProfile<SyncUIMappingProfile>();
                 cfg.AddProfile<InfrastructureMappingProfile>();
             });
 		}
