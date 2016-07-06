@@ -132,6 +132,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authorization\AuthorizationManager.cs" />
+    <Compile Include="Authorization\AuthorizationAttribute.cs" />
+    <Compile Include="Authorization\IAuthorizationProvider.cs" />
+    <Compile Include="Authorization\SessionBased\SessionBasedProvider.cs" />
+    <Compile Include="Authorization\SessionBased\SessionManager.cs" />
+    <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="SyncUIMappingProfile.cs" />
     <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -139,6 +145,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Authorization\EnterTheHouseViewModel.cs" />
     <Compile Include="ViewModels\Character\CharacterDetailsViewModel.cs" />
     <Compile Include="ViewModels\Character\CharacterListElementViewModel.cs" />
     <Compile Include="ViewModels\Character\CreateCharacterViewModel.cs" />
@@ -182,6 +189,7 @@
     <Content Include="Views\Character\Index.cshtml" />
     <Content Include="Views\Character\Create.cshtml" />
     <Content Include="Views\Character\Edit.cshtml" />
+    <Content Include="Views\Authorization\EnterTheHouse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -89,8 +89,23 @@ namespace ValarMorghulis.Infrastructure.Services
                 throw new CharacterDoesNotExistException();
             }
 
-            characterRepository.Delete(entity);
-            characterRepository.Save();
-        }
-    }
+			characterRepository.Delete(entity);
+			characterRepository.Save();
+		}
+
+		public CharacterWithIdDTO GetCharacterAllowedToEnterHouse(string characterName, string houseWords)
+		{
+			Character entity = characterRepository.GetAll().FirstOrDefault(c => c.Name == characterName);
+			if (entity == null)
+			{
+				throw new CharacterDoesNotExistException();
+			}
+
+			if (entity.Houses.Any(h => h.Words == houseWords))
+			{
+				return Mapper.Map<CharacterWithIdDTO>(entity);
+			}
+			return null;
+		}
+	}
 }
