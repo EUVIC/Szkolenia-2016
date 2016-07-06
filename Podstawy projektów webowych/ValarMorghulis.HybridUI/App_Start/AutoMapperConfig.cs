@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ValarMorghulis.Infrastructure;
 
 namespace ValarMorghulis.HybridUI.App_Start
 {
@@ -13,8 +12,11 @@ namespace ValarMorghulis.HybridUI.App_Start
         /// </summary>
         public static void RegisterAutoMapper()
         {
-            AutoMapperConfiguration config = new AutoMapperConfiguration();
-            config.Configure();
+            Infrastructure.AutoMapperConfiguration infrastructureConfig = new Infrastructure.AutoMapperConfiguration();
+            infrastructureConfig.Configure();
+
+            AutoMapperConfiguration localConfig = new AutoMapperConfiguration();
+            localConfig.Configure();
         }
     }
 }

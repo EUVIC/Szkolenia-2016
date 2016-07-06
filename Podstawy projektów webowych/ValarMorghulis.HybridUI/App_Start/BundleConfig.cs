@@ -13,8 +13,8 @@ namespace ValarMorghulis.HybridUI
                         "~/Scripts/jquery.datatables.min.js"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/select2").Include(
-                        "~/Scripts/select2.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/selectize").Include(
+                        "~/Scripts/selectize.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -32,6 +32,7 @@ namespace ValarMorghulis.HybridUI
                       "~/Content/bootstrap.css",
                       "~/Content/jquery.dataTables.min.css",
                       "~/Content/select2.min.css",
+                       "~/Content/selectize.bootstrap3.css",
                       "~/Content/site.css"));
         }
     }

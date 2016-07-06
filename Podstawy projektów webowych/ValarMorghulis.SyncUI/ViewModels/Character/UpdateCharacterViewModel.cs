@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValarMorghulis.Infrastructure.ViewModels.Character
+namespace ValarMorghulis.SyncUI.ViewModels.Character
 {
     public class UpdateCharacterViewModel
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValarMorghulis.Infrastructure.ViewModels.Culture
+namespace ValarMorghulis.HybridUI.Models
 {
-	public class CultureSelectListItemViewModel
+	public class CharacterListElementViewModel
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }

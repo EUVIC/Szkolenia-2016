@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using ValarMorghulis.Infrastructure.Models;
 using ValarMorghulis.Infrastructure.Services;
-using ValarMorghulis.Infrastructure.ViewModels.Character;
 
 namespace ValarMorghulis.WebAPI.Controllers
 {
@@ -30,14 +30,14 @@ namespace ValarMorghulis.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult CreateCharacter([FromBody]CreateCharacterViewModel vm)
+        public IHttpActionResult CreateCharacter([FromBody]CharacterDTO vm)
         {
             service.CreateCharacter(vm);
             return Ok();
         }
 
         [HttpPut]
-        public IHttpActionResult UpdateCharacter(int id, [FromBody]UpdateCharacterViewModel vm)
+        public IHttpActionResult UpdateCharacter(int id, [FromBody]CharacterDTO vm)
         {
             service.UpdateCharacter(id, vm);
             return Ok();

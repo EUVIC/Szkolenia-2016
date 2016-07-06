@@ -1,4 +1,4 @@
-﻿@model ValarMorghulis.Infrastructure.ViewModels.Character.UpdateCharacterViewModel
+﻿@model ValarMorghulis.HybridUI.Models.UpdateCharacterViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CultureId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select id="culture-picker" class="form-control"></select>
+                <select name="CultureId" id="culture-picker" class="form-control"></select>
                 @Html.ValidationMessageFor(model => model.CultureId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,14 +67,45 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/selectize")
 
-   <script>
-       $('#culture-picker').select2({
-           ajax: {
-               url: "/Culture/GetCultures",
-               dataType: 'json'
-           }
-       });
+    <script>
+        var culturesRequest = function (query) {
+            return $.ajax({
+                url: query ? '/Culture/GetCultures?q=' + encodeURIComponent(query) : '/Culture/GetCultures',
+                type: 'GET'
+            });
+        }
+
+        var initialCultureId = @Model.CultureId;
+
+        $('#culture-picker').selectize({
+            valueField: 'Id',
+            labelField: 'Name',
+            searchField: 'Name',
+            create: false,
+            preload: false,
+            closeAfterSelect: true,
+            render: {
+                option: function (item, escape) {
+                    return '<div>' + item.Name + '</div>';
+                }
+            },
+            load: function (query, callback) {
+                culturesRequest(query).success(function (resp) {
+                    callback(resp);
+                });
+            },
+            onInitialize: function () {
+                // load init data and select initial value
+                var self = this;
+                this.load(function (callback) {
+                    culturesRequest().success(function (resp) {
+                        callback(resp);
+                        self.setValue(initialCultureId);
+                    });
+                })
+            }
+        });
     </script>
 }

@@ -13,8 +13,11 @@ namespace ValarMorghulis.SyncUI.App_Start
 		/// </summary>
 		public static void RegisterAutoMapper()
 		{
-			AutoMapperConfiguration config = new AutoMapperConfiguration();
-			config.Configure();
-		}
+            Infrastructure.AutoMapperConfiguration infrastructureConfig = new Infrastructure.AutoMapperConfiguration();
+            infrastructureConfig.Configure();
+
+            AutoMapperConfiguration localConfig = new AutoMapperConfiguration();
+            localConfig.Configure();
+        }
 	}
 }

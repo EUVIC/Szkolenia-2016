@@ -4,7 +4,7 @@ using System.Linq;
 using ValarMorghulis.Domain;
 using ValarMorghulis.Domain.Interfaces;
 using ValarMorghulis.Domain.Repositories;
-using ValarMorghulis.Infrastructure.ViewModels.Character;
+using ValarMorghulis.Infrastructure.Models;
 
 namespace ValarMorghulis.Infrastructure.Services
 {
@@ -18,26 +18,26 @@ namespace ValarMorghulis.Infrastructure.Services
 			characterRepository = new CharacterRepository();
 		}
 
-		public CharacterDetailsViewModel GetCharacterDetails(int id)
+		public CharacterDTO GetCharacterDetails(int id)
 		{
 			Character entity = characterRepository.GetSingle(id);
-			return AutoMapperConfiguration.characterMapper.Map<CharacterDetailsViewModel>(entity);
+			return AutoMapperConfiguration.characterMapper.Map<CharacterDTO>(entity);
 		}
 
-		public IEnumerable<CharacterListElementViewModel> GetCharacters()
+		public IEnumerable<CharacterListElementDTO> GetCharacters()
 		{
 			IQueryable<Character> entities = characterRepository.GetAll();
-			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementViewModel>>(entities);
+			return AutoMapperConfiguration.characterMapper.Map<IEnumerable<CharacterListElementDTO>>(entities);
 		}
 
-		public void CreateCharacter(CreateCharacterViewModel viewModel)
+		public void CreateCharacter(CharacterDTO viewModel)
 		{
 			Character entity = AutoMapperConfiguration.characterMapper.Map<Character>(viewModel);
 			characterRepository.Add(entity);
 			characterRepository.Save();
 		}
 
-        public void UpdateCharacter(int id, UpdateCharacterViewModel viewModel)
+        public void UpdateCharacter(int id, CharacterDTO viewModel)
         {
             Character entity = characterRepository.GetSingle(id);
             AutoMapperConfiguration.characterMapper.Map(viewModel, entity);
