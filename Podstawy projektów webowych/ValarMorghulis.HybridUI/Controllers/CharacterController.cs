@@ -71,7 +71,6 @@ namespace ValarMorghulis.HybridUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
                 characterService.UpdateCharacter(id, Mapper.Map<CharacterDTO>(viewModel));
                 return RedirectToAction("Index");
             }
