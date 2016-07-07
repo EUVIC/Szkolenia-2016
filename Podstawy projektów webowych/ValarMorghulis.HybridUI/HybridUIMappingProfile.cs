@@ -18,9 +18,7 @@ namespace ValarMorghulis.HybridUI
             CreateMap<CharacterWithIdDTO, UpdateCharacterViewModel>();
             CreateMap<CharacterWithIdDTO, CharacterListElementViewModel>();
 
-            CreateMap<UpdateCharacterViewModel, CharacterWithIdDTO>()
-				// TODO: Czemu ignore Id?
-                .ForMember(d => d.Id, opt => opt.Ignore());
+            CreateMap<UpdateCharacterViewModel, CharacterDTO>();
             CreateMap<CreateCharacterViewModel, CharacterDTO>();
         }
     }
