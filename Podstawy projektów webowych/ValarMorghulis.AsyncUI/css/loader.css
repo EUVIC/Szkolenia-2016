@@ -1,0 +1,36 @@
+.loader-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.85);
+	z-index: 10;
+}
+
+	.loader-overlay .loader-content {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 10px 15px;
+		position: relative;
+	}
+
+	.loader-overlay:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+	}
+
+.loader-overlay {
+	text-align: center;
+}
+
+.loader-content {
+	background-image: url('../images/spin.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 64px;
+	height: 64px;
+}

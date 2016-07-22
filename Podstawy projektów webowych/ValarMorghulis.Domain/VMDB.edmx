@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VMDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CharacterHouse">
+          <Key>
+            <PropertyRef Name="SwornMemebers_Id" />
+            <PropertyRef Name="Houses_Id" />
+          </Key>
+          <Property Name="SwornMemebers_Id" Type="int" Nullable="false" />
+          <Property Name="Houses_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Characters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Born" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Died" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Culture_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CharacterTitle">
+          <Key>
+            <PropertyRef Name="Characters_Id" />
+            <PropertyRef Name="Titles_Id" />
+          </Key>
+          <Property Name="Characters_Id" Type="int" Nullable="false" />
+          <Property Name="Titles_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cultures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Houses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CoatOfArms" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Words" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="HouseId" Type="int" Nullable="false" />
+          <Property Name="Region_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TitleHouse">
+          <Key>
+            <PropertyRef Name="Titles_Id" />
+            <PropertyRef Name="Houses_Id" />
+          </Key>
+          <Property Name="Titles_Id" Type="int" Nullable="false" />
+          <Property Name="Houses_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Titles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CharacterCulture">
+          <End Role="Cultures" Type="Self.Cultures" Multiplicity="1" />
+          <End Role="Characters" Type="Self.Characters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cultures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Characters">
+              <PropertyRef Name="Culture_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterHouse_Character">
+          <End Role="Characters" Type="Self.Characters" Multiplicity="1" />
+          <End Role="CharacterHouse" Type="Self.CharacterHouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Characters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CharacterHouse">
+              <PropertyRef Name="SwornMemebers_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterHouse_House">
+          <End Role="Houses" Type="Self.Houses" Multiplicity="1" />
+          <End Role="CharacterHouse" Type="Self.CharacterHouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Houses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CharacterHouse">
+              <PropertyRef Name="Houses_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterHouse1">
+          <End Role="Characters" Type="Self.Characters" Multiplicity="1" />
+          <End Role="Houses" Type="Self.Houses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Characters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Houses">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterTitle_Character">
+          <End Role="Characters" Type="Self.Characters" Multiplicity="1" />
+          <End Role="CharacterTitle" Type="Self.CharacterTitle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Characters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CharacterTitle">
+              <PropertyRef Name="Characters_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterTitle_Title">
+          <End Role="Titles" Type="Self.Titles" Multiplicity="1" />
+          <End Role="CharacterTitle" Type="Self.CharacterTitle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CharacterTitle">
+              <PropertyRef Name="Titles_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HouseHouse">
+          <End Role="Houses" Type="Self.Houses" Multiplicity="1" />
+          <End Role="Houses1" Type="Self.Houses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Houses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Houses1">
+              <PropertyRef Name="HouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HouseRegion">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Houses" Type="Self.Houses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Houses">
+              <PropertyRef Name="Region_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TitleHouse_House">
+          <End Role="Houses" Type="Self.Houses" Multiplicity="1" />
+          <End Role="TitleHouse" Type="Self.TitleHouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Houses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TitleHouse">
+              <PropertyRef Name="Houses_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TitleHouse_Title">
+          <End Role="Titles" Type="Self.Titles" Multiplicity="1" />
+          <End Role="TitleHouse" Type="Self.TitleHouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TitleHouse">
+              <PropertyRef Name="Titles_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VMDBStoreContainer">
+          <EntitySet Name="CharacterHouse" EntityType="Self.CharacterHouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Characters" EntityType="Self.Characters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CharacterTitle" EntityType="Self.CharacterTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cultures" EntityType="Self.Cultures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Houses" EntityType="Self.Houses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitleHouse" EntityType="Self.TitleHouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CharacterCulture" Association="Self.FK_CharacterCulture">
+            <End Role="Cultures" EntitySet="Cultures" />
+            <End Role="Characters" EntitySet="Characters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterHouse_Character" Association="Self.FK_CharacterHouse_Character">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="CharacterHouse" EntitySet="CharacterHouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterHouse_House" Association="Self.FK_CharacterHouse_House">
+            <End Role="Houses" EntitySet="Houses" />
+            <End Role="CharacterHouse" EntitySet="CharacterHouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterHouse1" Association="Self.FK_CharacterHouse1">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="Houses" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterTitle_Character" Association="Self.FK_CharacterTitle_Character">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="CharacterTitle" EntitySet="CharacterTitle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterTitle_Title" Association="Self.FK_CharacterTitle_Title">
+            <End Role="Titles" EntitySet="Titles" />
+            <End Role="CharacterTitle" EntitySet="CharacterTitle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HouseHouse" Association="Self.FK_HouseHouse">
+            <End Role="Houses" EntitySet="Houses" />
+            <End Role="Houses1" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HouseRegion" Association="Self.FK_HouseRegion">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Houses" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TitleHouse_House" Association="Self.FK_TitleHouse_House">
+            <End Role="Houses" EntitySet="Houses" />
+            <End Role="TitleHouse" EntitySet="TitleHouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TitleHouse_Title" Association="Self.FK_TitleHouse_Title">
+            <End Role="Titles" EntitySet="Titles" />
+            <End Role="TitleHouse" EntitySet="TitleHouse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="VMDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="VMDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cultures" EntityType="VMDB.Culture" />
+          <EntitySet Name="Houses" EntityType="VMDB.House" />
+          <EntitySet Name="Regions" EntityType="VMDB.Region" />
+          <EntitySet Name="Titles" EntityType="VMDB.Title" />
+          <AssociationSet Name="TitleHouse" Association="VMDB.TitleHouse">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="House" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="HouseRegion" Association="VMDB.HouseRegion">
+            <End Role="House" EntitySet="Houses" />
+            <End Role="Region" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="HouseHouse" Association="VMDB.HouseHouse">
+            <End Role="House" EntitySet="Houses" />
+            <End Role="House1" EntitySet="Houses" />
+          </AssociationSet>
+          <EntitySet Name="Characters" EntityType="VMDB.Character" />
+          <AssociationSet Name="FK_CharacterCulture" Association="VMDB.FK_CharacterCulture">
+            <End Role="Culture" EntitySet="Cultures" />
+            <End Role="Characters" EntitySet="Characters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CharacterHouse1" Association="VMDB.FK_CharacterHouse1">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="House" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="CharacterHouse" Association="VMDB.CharacterHouse">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="House" EntitySet="Houses" />
+          </AssociationSet>
+          <AssociationSet Name="CharacterTitle" Association="VMDB.CharacterTitle">
+            <End Role="Characters" EntitySet="Characters" />
+            <End Role="Title" EntitySet="Titles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Characters" Relationship="VMDB.FK_CharacterCulture" FromRole="Culture" ToRole="Characters" />
+        </EntityType>
+        <EntityType Name="House">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CoatOfArms" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Words" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Titles" Relationship="VMDB.TitleHouse" FromRole="House" ToRole="Title" />
+          <NavigationProperty Name="Region" Relationship="VMDB.HouseRegion" FromRole="House" ToRole="Region" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vassals" Relationship="VMDB.HouseHouse" FromRole="House" ToRole="House1" />
+          <NavigationProperty Name="Overlord" Relationship="VMDB.HouseHouse" FromRole="House1" ToRole="House" />
+          <Property Name="OverlordId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character" Relationship="VMDB.FK_CharacterHouse1" FromRole="House" ToRole="Characters" />
+          <NavigationProperty Name="SwornMembers" Relationship="VMDB.CharacterHouse" FromRole="House" ToRole="Characters" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Houses" Relationship="VMDB.HouseRegion" FromRole="Region" ToRole="House" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Houses" Relationship="VMDB.TitleHouse" FromRole="Title" ToRole="House" />
+          <NavigationProperty Name="Characters" Relationship="VMDB.CharacterTitle" FromRole="Title" ToRole="Characters" />
+        </EntityType>
+        <Association Name="TitleHouse">
+          <End Type="VMDB.Title" Role="Title" Multiplicity="*" />
+          <End Type="VMDB.House" Role="House" Multiplicity="*" />
+        </Association>
+        <Association Name="HouseRegion">
+          <End Type="VMDB.House" Role="House" Multiplicity="*" />
+          <End Type="VMDB.Region" Role="Region" Multiplicity="1" />
+        </Association>
+        <Association Name="HouseHouse">
+          <End Type="VMDB.House" Role="House" Multiplicity="1" />
+          <End Type="VMDB.House" Role="House1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="House">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="House1">
+              <PropertyRef Name="OverlordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Character">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Born" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Died" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CultureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Culture" Relationship="VMDB.FK_CharacterCulture" FromRole="Characters" ToRole="Culture" />
+          <NavigationProperty Name="House" Relationship="VMDB.FK_CharacterHouse1" FromRole="Characters" ToRole="House" />
+          <NavigationProperty Name="Houses" Relationship="VMDB.CharacterHouse" FromRole="Characters" ToRole="House" />
+          <NavigationProperty Name="Titles" Relationship="VMDB.CharacterTitle" FromRole="Characters" ToRole="Title" />
+        </EntityType>
+        <Association Name="FK_CharacterCulture">
+          <End Type="VMDB.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="VMDB.Character" Role="Characters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Characters">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CharacterHouse1">
+          <End Type="VMDB.Character" Role="Characters" Multiplicity="1" />
+          <End Type="VMDB.House" Role="House" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Characters">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="House">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CharacterHouse">
+          <End Type="VMDB.Character" Role="Characters" Multiplicity="*" />
+          <End Type="VMDB.House" Role="House" Multiplicity="*" />
+        </Association>
+        <Association Name="CharacterTitle">
+          <End Type="VMDB.Character" Role="Characters" Multiplicity="*" />
+          <End Type="VMDB.Title" Role="Title" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VMDBStoreContainer" CdmEntityContainer="VMDBContainer">
+    <EntitySetMapping Name="Cultures">
+      <EntityTypeMapping TypeName="IsTypeOf(VMDB.Culture)">
+        <MappingFragment StoreEntitySet="Cultures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Houses">
+      <EntityTypeMapping TypeName="IsTypeOf(VMDB.House)">
+        <MappingFragment StoreEntitySet="Houses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CoatOfArms" ColumnName="CoatOfArms" />
+          <ScalarProperty Name="Words" ColumnName="Words" />
+          <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+          <ScalarProperty Name="OverlordId" ColumnName="HouseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="IsTypeOf(VMDB.Region)">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Titles">
+      <EntityTypeMapping TypeName="IsTypeOf(VMDB.Title)">
+        <MappingFragment StoreEntitySet="Titles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TitleHouse" TypeName="VMDB.TitleHouse" StoreEntitySet="TitleHouse">
+      <EndProperty Name="Title">
+        <ScalarProperty Name="Id" ColumnName="Titles_Id" />
+      </EndProperty>
+      <EndProperty Name="House">
+        <ScalarProperty Name="Id" ColumnName="Houses_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HouseRegion" TypeName="VMDB.HouseRegion" StoreEntitySet="Houses">
+      <EndProperty Name="Region">
+        <ScalarProperty Name="Id" ColumnName="Region_Id" />
+      </EndProperty>
+      <EndProperty Name="House">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+          <EntitySetMapping Name="Characters">
+            <EntityTypeMapping TypeName="VMDB.Character">
+              <MappingFragment StoreEntitySet="Characters">
+                <ScalarProperty Name="CultureId" ColumnName="Culture_Id" />
+                <ScalarProperty Name="Died" ColumnName="Died" />
+                <ScalarProperty Name="Born" ColumnName="Born" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CharacterHouse" TypeName="VMDB.CharacterHouse" StoreEntitySet="CharacterHouse">
+            <EndProperty Name="House">
+              <ScalarProperty Name="Id" ColumnName="Houses_Id" />
+            </EndProperty>
+            <EndProperty Name="Characters">
+              <ScalarProperty Name="Id" ColumnName="SwornMemebers_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CharacterTitle" TypeName="VMDB.CharacterTitle" StoreEntitySet="CharacterTitle">
+            <EndProperty Name="Title">
+              <ScalarProperty Name="Id" ColumnName="Titles_Id" />
+            </EndProperty>
+            <EndProperty Name="Characters">
+              <ScalarProperty Name="Id" ColumnName="Characters_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
